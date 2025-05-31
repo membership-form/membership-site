@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Form</title>
+    <script>
+        function generateOrderNumber() {
+            var membershipType = document.getElementById("membership").value;
+            var orderField = document.getElementById("order");
+            var generatedOrder = document.getElementById("generatedOrder");
+            var hiddenCode = document.getElementById("code");
+
+            if (membershipType === "premium") {
+                orderField.value = "PREM123456";
+                generatedOrder.textContent = "Generated Order Number: PREM123456";
+                hiddenCode.setAttribute("data-generated", "prem9876");
+            } else if (membershipType === "vip") {
+                orderField.value = "VIP987654";
+                generatedOrder.textContent = "Generated Order Number: VIP987654";
+                hiddenCode.setAttribute("data-generated", "vip1234");
+            } else {
+                orderField.value = "";
+                generatedOrder.textContent = "Select a membership type to generate an order number.";
+                hiddenCode.setAttribute("data-generated", "");
+            }
+        }
+
+        function validateAccessCode(event) {
+            var inputCode = document.getElementById("code").value;
+            var correctCode = document.getElementById("code").getAttribute("data-generated");
+
+            if (inputCode !== correctCode) {
+                alert("Invalid access code! Please enter the correct one.");
+                event.preventDefault();
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Fan Membership Signup</h1>
+    </header>
+    <section>
+        <form action="submit_form.html" method="post" onsubmit="validateAccessCode(event)">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state" required><br><br>
+
+            <label for="song">Favorite Song:</label>
+            <input type="text" id="song" name="song" required><br><br>
+
+            <label for="membership">Membership Type:</label>
+            <select id="membership" name="membership" required onchange="generateOrderNumber()">
+                <option value="" disabled selected>Select Membership</option>
+                <option value="premium">Premium - $250</option>
+                <option value="vip">VIP - $700</option>
+            </select><br><br>
+
+            <p id="generatedOrder"><strong>Select membership type to generate order number.</strong></p>
+
+            <label for="order">Order Number:</label>
+            <input type="text" id="order" name="order" readonly required><br><br>
+
+            <label for="code">Enter Access Code:</label>
+            <input type="text" id="code" name="code" required><br><br>
+
+            <input type="submit" value="Join Now">
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2025 Membership Program</p>
+    </footer>
+</body>
+</html>
