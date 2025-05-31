@@ -33,6 +33,9 @@
             if (inputCode !== correctCode) {
                 alert("Invalid access code! Please enter the correct one.");
                 event.preventDefault();
+            } else {
+                event.preventDefault(); // Prevents actual submission for now
+                document.getElementById("successMessage").style.display = "block"; // Shows success message
             }
         }
     </script>
@@ -43,7 +46,7 @@
         <h1>Fan Membership Signup</h1>
     </header>
     <section>
-        <form action="submit_form.html" method="post" onsubmit="validateAccessCode(event)">
+        <form onsubmit="validateAccessCode(event)">
             <label for="name">Full Name:</label>
             <input type="text" id="name" name="name" required><br><br>
 
@@ -76,6 +79,8 @@
 
             <input type="submit" value="Join Now">
         </form>
+
+        <p id="successMessage" style="display: none; color: green; font-weight: bold;">✅ Success! Membership form submitted.</p>
     </section>
     <footer>
         <p>&copy; 2025 Membership Program</p>
