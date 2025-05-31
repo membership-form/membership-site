@@ -1,0 +1,78 @@
+/* Apply general styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Center the form container */
+section {
+    max-width: 500px;
+    background: white;
+    padding: 20px;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Header styling */
+header {
+    text-align: center;
+    background: #007bff;
+    color: white;
+    padding: 20px;
+    font-size: 24px;
+}
+
+/* Labels and inputs styling */
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Make inputs more visible */
+input:focus, select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Styling for generated order */
+#generatedOrder, #generatedCode {
+    color: #d9534f;
+    font-weight: bold;
+}
+
+/* Submit button styling */
+input[type="submit"] {
+    background: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+input[type="submit"]:hover {
+    background: #218838;
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background: #343a40;
+    color: white;
+}
